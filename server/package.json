@@ -1,0 +1,68 @@
+{
+  "name": "planka-server",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "console": "dotenv sails console",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
+    "db:init": "cd db && node init.js",
+    "db:migrate": "knex migrate:latest --cwd db",
+    "db:seed": "knex seed:run --cwd db",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "start": "npm run db:init && NODE_ENV=production node app.js",
+    "start:dev": "nodemon",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "no-throw-literal": "off",
+      "no-undef": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 100,
+          "singleQuote": true,
+          "trailingComma": "all"
+        }
+      ]
+    },
+    "globals": {
+      "_": true,
+      "sails": true
+    }
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.8",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "sails": "^1.2.3",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-postgresql": "^1.0.2",
+    "sharp": "^0.24.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "1.19.1"
+  },
+  "engines": {
+    "node": "^12.10"
+  }
+}
