@@ -50,7 +50,7 @@
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
     "sails-postgresql": "^1.0.2",
-    "sharp": "^0.24.0",
+    "sharp": "^0.30.5",
     "uuid": "^3.4.0"
   },
   "devDependencies": {
